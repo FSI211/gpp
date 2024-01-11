@@ -1,0 +1,40 @@
+# The GG grammar
+
+# Keywords
+
+### Standard things 
+
+1. var - make a variable
+2. wait + [number]  - waits [number] seconds
+3. say + [word] - prints the given word
+4. nt + [any keyowrd] - 
+5. # - define something:  #linux or #windows or #mac or all together (i use all together, than they can run on every system.)
+6. windows - os = windows
+7. linux - os = linux
+8. mac - os = mac
+9. ret + [number] - returns to code [number]
+10. done + [number] - returns to [number], closes the file and says done when finished. (basically return with "done" in it)
+11. endline - ends the line
+12. main - yea just main
+13. fun - function
+14. findwin - finds the window
+15. defi - you don't need that, dev only
+16. makefile + [name] - makes a file and names it.
+17. cmd [cmd command] - executes the cmd command
+
+
+## Normal Operators (Symboles)
+plus - +
+minus - -
+divide - :
+multiply - *
+is - =
+
+()
+[]
+{}
+/
+&
+%
+
+

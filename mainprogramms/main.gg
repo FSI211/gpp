@@ -1,0 +1,11 @@
+#windows
+#linux
+#mac
+
+say Hello World
+
+wait 5
+
+cmd cls
+
+done 0

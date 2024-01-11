@@ -1,0 +1,15 @@
+#windows
+
+fun (main)
+
+say Hello World
+
+var a = 99999999
+
+makefile a.txt
+
+wait 2
+
+cmd cls
+
+done 0
