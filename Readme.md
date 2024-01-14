@@ -8,7 +8,7 @@
 4. Developed by an 12 year old.
 5. It is fast, but is not designed to be fast, it was designed to be easy.
 
-I got bored of languages like Python (but i like Python) or Javascript, not only because I hate Javscript no, cause I always wanted my own PL.
+I got bored of languages like Python (but i like Python) or Javascript, not only because I hate Javscript, cause I always wanted my own PL.
 
 ## Install it
 
