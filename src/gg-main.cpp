@@ -62,7 +62,7 @@ string gg = ".gg";
     string wait = "wait";
     string ret = "ret 0";
     string enl = "endline";
-    string func = "fun";
+    string func = "func";
     string mem = "clsmem";
     string main_ = "main";
     string dev = "dev";
@@ -72,7 +72,10 @@ string gg = ".gg";
     string printvar = "sayvar";
     string cmd = "cmd";
     string orf = "or";
-    string exec = "exe";
+    string execstn = "./";
+    string pause = "pause"; 
+    string lin1 = "line";
+
 
     
 //Memory access
@@ -147,6 +150,7 @@ string gg = ".gg";
     string by = ",";
     string loud = "!";
     string dot = ".";
+    string tab = "    ";
 
     
 
@@ -209,6 +213,11 @@ string gg = ".gg";
                 system(("" + exec).c_str());
             }
 
+            else if((offset = line.find(pause + space + lin1, 0)) != string::npos)
+            {
+                system("pause");
+            }
+
 //Cmd commands;
 
 
@@ -233,12 +242,37 @@ string gg = ".gg";
 //Read File;
 
 
-//Functions:
-            else if((offset = line.find(func + space + bra1 + main_ + bra2, 0)) != string::npos)
+//Functions(wichtig):
+            else if((offset = line.find(func + bra1 + main_ + bra2 + div, 0)) != string::npos)
             {
                 cout << bra1 << "main func" << bra2 << "\n";
                 main_func = true;
+
+                getline(Myfile, line);
+
+                // Hier kannst du weitere Bedingungen für diese spezielle Funktion hinzufügen
+                if ((offset = line.find("    gg.serv;", 0)) != string::npos)
+                {
+                    class m {
+                        public:
+                            void ma() {
+                                cout << "executed\n";
+                            }
+                    };
+
+                    m M;
+                    M.ma();
+                }
+                else {
+                    cout << "gcoulderr: Couldn't execute func.\n";
+                }
             }
+
+            else if(main_func == true)
+            {
+                string fistring = line.substr(offset + 12);
+            }
+
             
             else if((offset = line.find(hash + nt, 0)) != string::npos)
             {
@@ -250,7 +284,7 @@ string gg = ".gg";
                 }
             }
 
-//Functions;
+//Functions(wichtig);
 
 
 //Variables:
@@ -275,11 +309,7 @@ string gg = ".gg";
 //Variables;
 
 //FindWindow:
-            else if((offset = line.find(fnwin + fnwintitle, 0)) != string::npos)
-            {
-                HWND hwnd = FindWindow("gg.exe", 0);
-                cout << "Window found";
-            }
+
 //FindWindow;
 
 //Waiting:

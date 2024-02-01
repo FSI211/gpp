@@ -1,0 +1,6 @@
+say OS booting...
+wait 2
+say OS running...
+wait 2
+func(main): 
+    gg.serv;

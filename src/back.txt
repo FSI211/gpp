@@ -7,7 +7,6 @@
 #include <time.h>
 #include "modules.h"
 #include "fast.h"
-
 //Namespaces
 using namespace std;
 
@@ -21,8 +20,10 @@ int main(void)
 //Test things
 int argc; 
 char** argv;
+int y;
 
 // .h access
+
 
     //Get Modules
 Modules mod;
@@ -40,6 +41,7 @@ string gg = ".gg";
     string line;
     string runner = argv[1];
     bool lowmem = false;
+    bool isloudest = false;
 
 //Big things:
 
@@ -60,7 +62,7 @@ string gg = ".gg";
     string wait = "wait";
     string ret = "ret 0";
     string enl = "endline";
-    string func = "fun";
+    string func = "func";
     string mem = "clsmem";
     string main_ = "main";
     string dev = "dev";
@@ -69,6 +71,11 @@ string gg = ".gg";
     string mkfiletxt = "makefiletxt"; 
     string printvar = "sayvar";
     string cmd = "cmd";
+    string orf = "or";
+    string execstn = "./";
+    string pause = "pause"; 
+    string lin1 = "line";
+
 
     
 //Memory access
@@ -86,6 +93,7 @@ string gg = ".gg";
     string linux = "linux";
     string windows = "windows";
     string mac = "mac"; 
+
 //OS;
 
 //Booleans:
@@ -93,7 +101,7 @@ string gg = ".gg";
     bool main_func = false;
     bool no = false;
     bool fileopen = false;
-    bool var_made = false;
+    bool var_made = true;
 
 //Booleans;
 
@@ -121,6 +129,8 @@ string gg = ".gg";
     string plu = "+";
     string div = ":";
     string multi = "*";
+    string smaller = "<";
+    string bigger = ">";
 
     string is = "=";
     string semi = ";";
@@ -138,6 +148,11 @@ string gg = ".gg";
     string annd = "&";
     string percent = "%";
     string by = ",";
+    string loud = "!";
+    string dot = ".";
+    string tab = "    ";
+
+    
 
 //Run file
 
@@ -180,15 +195,28 @@ string gg = ".gg";
             }
 //Error statements;
 
-            else if((offset = line.find(cmd, 0)) != string::npos)
+//1.1 Staff:
+
+            else if((offset = line.find(loud, 0)) != string::npos)
             {
-                string exec = line.substr(offset + 4);
-                //Mach ich noch
+                isloudest = true;
             }
+
+//1.1 Staff;
+
 
 //Cmd commands:
 
+            else if((offset = line.find(cmd, 0)) != string::npos)
+            {
+                string exec = line.substr(offset + 3);
+                system(("" + exec).c_str());
+            }
 
+            else if((offset = line.find(pause + space + lin1, 0)) != string::npos)
+            {
+                system("pause");
+            }
 
 //Cmd commands;
 
@@ -214,12 +242,37 @@ string gg = ".gg";
 //Read File;
 
 
-//Functions:
-            else if((offset = line.find(func + space + bra1 + main_ + bra2, 0)) != string::npos)
+//Functions(wichtig):
+            else if((offset = line.find(func + bra1 + main_ + bra2 + div, 0)) != string::npos)
             {
                 cout << bra1 << "main func" << bra2 << "\n";
                 main_func = true;
+
+                getline(Myfile, line);
+
+                // Hier kannst du weitere Bedingungen für diese spezielle Funktion hinzufügen
+                if ((offset = line.find("    gg.serv;", 0)) != string::npos)
+                {
+                    class m {
+                        public:
+                            void ma() {
+                                cout << "executed\n";
+                            }
+                    };
+
+                    m M;
+                    M.ma();
+                }
+                else {
+                    cout << "gcoulderr: Couldn't execute func.\n";
+                }
             }
+
+            else if(main_func == true)
+            {
+                string fistring = line.substr(offset + 12);
+            }
+
             
             else if((offset = line.find(hash + nt, 0)) != string::npos)
             {
@@ -231,7 +284,7 @@ string gg = ".gg";
                 }
             }
 
-//Functions;
+//Functions(wichtig);
 
 
 //Variables:
@@ -256,11 +309,7 @@ string gg = ".gg";
 //Variables;
 
 //FindWindow:
-            else if((offset = line.find(fnwin + fnwintitle, 0)) != string::npos)
-            {
-                HWND hwnd = FindWindow("gg.exe", 0);
-                cout << "Window found";
-            }
+
 //FindWindow;
 
 //Waiting:
