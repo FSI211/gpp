@@ -11,9 +11,8 @@ void installPackage(const string& packageName) {
     cout << "Installed package: " << packageName << endl;
     system("cd C:/Program Files && mkdir gg-inst-main && cd gg-inst-main && git clone https://github.com/FSI211/gg.git && echo Installedpath: C:/Program Files/gg-inst-main/gg");
     }
-    else if(packageName == "stdl") {
-    cout << "Installed package: " << packageName << endl;  
-    system("");
+    else if(packageName == "stdex") {
+    cout << "Package already installed: " << packageName << endl;  
     }
     else {
         cout << "Package not found.\n";
