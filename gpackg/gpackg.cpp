@@ -4,6 +4,7 @@
 #include <fstream>
 
 using namespace std;
+bool pushinst = false;
 
 // Funktion zum Installieren eines Pakets
 void installPackage(const string& packageName) {
@@ -12,7 +13,12 @@ void installPackage(const string& packageName) {
     system("cd C:/Program Files && mkdir gg-inst-main && cd gg-inst-main && git clone https://github.com/FSI211/gg.git && echo Installedpath: C:/Program Files/gg-inst-main/gg");
     }
     else if(packageName == "stdex") {
-    cout << "Package already installed: " << packageName << endl;  
+    cout << "Package already installed(mainlib): " << packageName << endl;  
+    }
+    else if(packageName == "push") {
+        void push() {
+                                    
+        }
     }
     else {
         cout << "Package not found.\n";
